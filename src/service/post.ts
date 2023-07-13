@@ -1,4 +1,8 @@
-import { SimplePostType, VelogPostType } from '@/types/post';
+import {
+  SimplePostType,
+  SimpleVelogPostType,
+  VelogPostType,
+} from '@/types/post';
 import path from 'path';
 import Parser from 'rss-parser';
 import fs, { readFile } from 'fs/promises';
@@ -10,15 +14,26 @@ import remarkHtml from 'remark-html';
 
 const parser = new Parser();
 
-export async function getRecentVelogPost(): Promise<VelogPostType[]> {
+export async function getRecentVelogPost(): Promise<SimpleVelogPostType[]> {
+  return (await getAllVelogPost()).slice(0, 5);
+}
+
+export async function getAllVelogPost(): Promise<SimpleVelogPostType[]> {
   return (await parser
     .parseURL('https://v2.velog.io/rss/younngg1012')
     .then((posts) =>
-      posts.items.slice(0, 5).map((post) => ({
-        ...post,
-        contentSnippet: post.contentSnippet?.slice(0, 100),
+      posts.items.map(({ title, isoDate, link, guid, contentSnippet }) => ({
+        title,
+        isoDate,
+        link,
+        guid,
+        contentSnippet: contentSnippet?.slice(0, 100),
       }))
     )) as VelogPostType[];
+}
+
+export async function getRecentMarkdownPosts(): Promise<SimplePostType[]> {
+  return (await getAllMarkdownPosts()).slice(0, 5);
 }
 
 export async function getAllMarkdownPosts(): Promise<SimplePostType[]> {
@@ -30,14 +45,19 @@ export async function getAllMarkdownPosts(): Promise<SimplePostType[]> {
   );
 
   return posts
-    .map(({ data: { title, date, tags, slug, description, categories } }) => ({
-      title,
-      date,
-      tags,
-      slug,
-      description,
-      categories,
-    }))
+    .map(
+      ({
+        data: { title, date, tags, slug, description, categories, image },
+      }) => ({
+        title,
+        date,
+        tags,
+        slug,
+        description,
+        categories,
+        image,
+      })
+    )
     .sort((a, b) => (a.date > b.date ? -1 : 1));
 }
 

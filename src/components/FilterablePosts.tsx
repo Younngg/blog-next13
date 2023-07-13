@@ -1,5 +1,7 @@
 import { SimplePostType } from '@/types/post';
 import PostCard from './PostCard';
+import PostList from './PostList';
+import Category from './Category';
 
 type Props = {
   posts: SimplePostType[];
@@ -9,9 +11,8 @@ type Props = {
 const FilterablePosts = ({ posts, categories }: Props) => {
   return (
     <>
-      {posts.map((post) => (
-        <PostCard post={post} key={post.slug} />
-      ))}
+      <PostList posts={posts} />
+      <Category categories={categories} />
     </>
   );
 };

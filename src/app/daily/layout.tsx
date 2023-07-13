@@ -1,15 +1,21 @@
 import PageTitle from '@/components/PageTitle';
 import PlayList from '@/components/PlayList';
 import pageInfo from '@/constants/pageInfo';
+import { ReactNode } from 'react';
 
-const DailyLayout = () => {
+type Props = {
+  children: ReactNode;
+};
+
+const DailyLayout = ({ children }: Props) => {
   return (
     <>
-      <PlayList />
       <PageTitle
         title={pageInfo['/daily'].title}
         description={pageInfo['/daily'].description}
       />
+      {children}
+      <PlayList />
     </>
   );
 };

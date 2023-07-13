@@ -8,6 +8,7 @@ description: test2
 slug: test2
 tags: 
   - test2
+image:
 ---
 
 ## test2

@@ -22,11 +22,18 @@ export type VelogPostType = {
   content: string;
 };
 
-export type SimplePostType = {
+export type SimpleVelogPostType = Omit<VelogPostType, 'content'>;
+
+export type FullPostType = {
   title: string;
   date: string;
   description: string;
   slug: string;
   tags: string[];
   categories: string[];
+  image: string;
+  content: string;
 };
+
+export type SimplePostType = Omit<FullPostType, 'content'>;
+

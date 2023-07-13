@@ -1,15 +1,13 @@
 import FilterablePosts from '@/components/FilterablePosts';
 import PostCard from '@/components/PostCard';
-import { getAllMarkdownPosts } from '@/service/post';
+import { getAllMarkdownPosts, getAllVelogPost } from '@/service/post';
 
 const StudyPage = async () => {
-  const posts = await getAllMarkdownPosts();
-  const categories = [...new Set(posts.flatMap((post) => post.categories))];
+  const posts = await getAllVelogPost();
 
+  console.log(posts);
   return (
-    <>
-      <FilterablePosts posts={posts} categories={categories} />
-    </>
+    <div className='max-w-screen-lg mx-auto flex justify-between py-10'></div>
   );
 };
 
