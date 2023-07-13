@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <footer className='mx-auto s sm:mt-20 bg-[#80a77a]'>
-      <div className='w-fit mx-auto py-20 grid grid-cols-3 gap-20 place-items-center'>
+    <footer className='bg-[#80a77a] py-10'>
+      <div className='flex justify-center items-center gap-20 mb-5'>
         <p>
           <a
             href='https://github.com/Younngg/'
@@ -29,11 +29,11 @@ const Footer = () => {
             <strong>Resume</strong>
           </a>
         </p>
-        <p className='emailBox col-span-3'>
-          <strong className='inline-block mr-2'>Email</strong>
-          <span>8533283@naver.com</span>
-        </p>
       </div>
+      <p className='text-center'>
+        <strong className='inline-block mr-2'>Email</strong>
+        <span>8533283@naver.com</span>
+      </p>
     </footer>
   );
 };
