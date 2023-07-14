@@ -1,5 +1,4 @@
 import { SimplePostType } from '@/types/post';
-import Image from 'next/image';
 import Link from 'next/link';
 
 type Props = {
@@ -7,10 +6,10 @@ type Props = {
 };
 
 const PostCard = ({ post }: Props) => {
-  const { slug, title, description, date, image, tags } = post;
+  const { slug, title, description, date, image, tags, link } = post;
 
   return (
-    <Link href={`/daily/${slug}`}>
+    <Link href={`/${link}/${slug}`}>
       <article className='overflow-hidden shadow-md md:w-[700px] w-full mx-auto'>
         {image && (
           // eslint-disable-next-line @next/next/no-img-element

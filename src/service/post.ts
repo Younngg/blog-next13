@@ -1,4 +1,4 @@
-import { SimplePostType } from '@/types/post';
+import { FullPostType, SimplePostType, VelogPostType } from '@/types/post';
 import path from 'path';
 import Parser from 'rss-parser';
 import fs, { readFile } from 'fs/promises';
@@ -23,8 +23,33 @@ export async function getAllVelogPost(): Promise<SimplePostType[]> {
         date: isoDate?.slice(0, 10),
         slug: guid?.split('https://velog.io/@younngg1012/')[1],
         description: contentSnippet?.slice(0, 100),
+        link: 'study',
       }))
     )) as SimplePostType[];
+}
+
+export async function getVelogPost(
+  slug: string
+): Promise<FullPostType | undefined> {
+  const posts = await parser.parseURL('https://v2.velog.io/rss/younngg1012');
+
+  const post = posts.items.find((post) => {
+    return (
+      decodeURI(post.guid!.split('https://velog.io/@younngg1012/')[1]) ===
+      decodeURI(slug)
+    );
+  }) as VelogPostType;
+
+  if (post) {
+    const { title, isoDate, guid, content } = post;
+    return {
+      title,
+      date: isoDate?.slice(0, 10),
+      slug: guid?.split('https://velog.io/@younngg1012/')[1],
+      content,
+      link: 'study',
+    };
+  }
 }
 
 export async function getRecentMarkdownPosts(): Promise<SimplePostType[]> {
@@ -51,6 +76,7 @@ export async function getAllMarkdownPosts(): Promise<SimplePostType[]> {
         description,
         categories,
         image,
+        link: 'daily',
       })
     )
     .sort((a, b) => (a.date > b.date ? -1 : 1));

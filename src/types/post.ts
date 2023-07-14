@@ -15,7 +15,7 @@ export type VelogDataType = {
 
 export type VelogPostType = {
   title: string;
-  date: string;
+  isoDate: string;
   link: string;
   guid: string;
   contentSnippet: string;
@@ -25,12 +25,13 @@ export type VelogPostType = {
 export type FullPostType = {
   title: string;
   date: string;
-  description: string;
+  content: string;
   slug: string;
+  link: string;
+  description?: string;
   tags?: string[];
   categories?: string[];
   image?: string;
-  content: string;
 };
 
 export type SimplePostType = Omit<FullPostType, 'content'>;
