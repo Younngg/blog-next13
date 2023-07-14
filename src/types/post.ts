@@ -1,4 +1,4 @@
-export type VelogType = {
+export type VelogDataType = {
   copyright: string;
   description: string;
   docs: string;
@@ -15,25 +15,22 @@ export type VelogType = {
 
 export type VelogPostType = {
   title: string;
-  isoDate: string;
+  date: string;
   link: string;
   guid: string;
   contentSnippet: string;
   content: string;
 };
 
-export type SimpleVelogPostType = Omit<VelogPostType, 'content'>;
-
 export type FullPostType = {
   title: string;
   date: string;
   description: string;
   slug: string;
-  tags: string[];
-  categories: string[];
-  image: string;
+  tags?: string[];
+  categories?: string[];
+  image?: string;
   content: string;
 };
 
 export type SimplePostType = Omit<FullPostType, 'content'>;
-

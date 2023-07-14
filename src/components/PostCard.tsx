@@ -11,7 +11,7 @@ const PostCard = ({ post }: Props) => {
 
   return (
     <Link href={`/daily/${slug}`}>
-      <article className='overflow-hidden shadow-md md:w-[700px] w-full'>
+      <article className='overflow-hidden shadow-md md:w-[700px] w-full mx-auto'>
         {image && (
           // eslint-disable-next-line @next/next/no-img-element
           <img

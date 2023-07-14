@@ -12,11 +12,11 @@ export default async function Home() {
           <h2 className='text-center text-2xl font-bold'>Recent Post</h2>
           <div className='flex flex-col items-center' data-aos='fade-up'>
             <h2 className='text-xl font-bold mb-10'>Daily</h2>
-            <RecentPosts markdownPosts={markdownPosts} />
+            <RecentPosts posts={markdownPosts} />
           </div>
           <div className='flex flex-col items-center'>
             <h2 className='text-xl font-bold mb-10'>Study</h2>
-            <RecentPosts velogPosts={velogPosts} />
+            <RecentPosts posts={velogPosts} />
           </div>
           <div className='flex flex-col items-center'>
             <h2 className='text-xl font-bold mb-10'>Tags</h2>
