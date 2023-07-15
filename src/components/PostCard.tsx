@@ -1,5 +1,6 @@
 import { SimplePostType } from '@/types/post';
 import Link from 'next/link';
+import Tags from './Tags';
 
 type Props = {
   post: SimplePostType;
@@ -26,18 +27,7 @@ const PostCard = ({ post }: Props) => {
             <p>{description}</p>
           </div>
           <div>
-            {tags && tags.length > 0 && (
-              <ul className='flex gap-2'>
-                {tags.map((tag) => (
-                  <li
-                    key={tag}
-                    className='rounded-full px-3 bg-green-100 text-neutral-600'
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            )}
+            {tags && tags.length > 0 && <Tags tags={tags} />}
             <span className='text-xs text-neutral-500'>{date}</span>
           </div>
         </div>
