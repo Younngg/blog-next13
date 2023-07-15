@@ -3,7 +3,7 @@ import PostCard from '@/components/PostCard';
 import PostList from '@/components/PostList';
 import { getAllMarkdownPosts, getAllVelogPost } from '@/service/post';
 
-const StudyPage = async () => {
+const VelogPage = async () => {
   const posts = await getAllVelogPost();
 
   return (
@@ -13,4 +13,4 @@ const StudyPage = async () => {
   );
 };
 
-export default StudyPage;
+export default VelogPage;

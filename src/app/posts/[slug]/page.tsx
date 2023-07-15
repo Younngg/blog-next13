@@ -6,7 +6,7 @@ type Props = {
   params: { slug: string };
 };
 
-const DailyPage = async ({ params: { slug } }: Props) => {
+const PostPage = async ({ params: { slug } }: Props) => {
   const post = await getMarkdownPost(slug);
 
   if (!post) {
@@ -20,4 +20,4 @@ const DailyPage = async ({ params: { slug } }: Props) => {
   );
 };
 
-export default DailyPage;
+export default PostPage;

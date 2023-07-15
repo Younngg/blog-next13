@@ -7,7 +7,7 @@ type Props = {
   children: ReactNode;
 };
 
-const DailyLayout = ({ children }: Props) => {
+const PostsLayout = ({ children }: Props) => {
   return (
     <>
       {children}
@@ -16,4 +16,4 @@ const DailyLayout = ({ children }: Props) => {
   );
 };
 
-export default DailyLayout;
+export default PostsLayout;

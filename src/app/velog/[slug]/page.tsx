@@ -6,7 +6,7 @@ type Props = {
   params: { slug: string };
 };
 
-const StudyPage = async ({ params: { slug } }: Props) => {
+const VelogPage = async ({ params: { slug } }: Props) => {
   const post = await getVelogPost(slug);
 
   if (!post) {
@@ -20,4 +20,4 @@ const StudyPage = async ({ params: { slug } }: Props) => {
   );
 };
 
-export default StudyPage;
+export default VelogPage;

@@ -23,7 +23,7 @@ export async function getAllVelogPost(): Promise<SimplePostType[]> {
         date: isoDate?.slice(0, 10),
         slug: guid?.split('https://velog.io/@younngg1012/')[1],
         description: contentSnippet?.slice(0, 100),
-        link: 'study',
+        link: 'velog',
       }))
     )) as SimplePostType[];
 }
@@ -47,7 +47,7 @@ export async function getVelogPost(
       date: isoDate?.slice(0, 10),
       slug: guid?.split('https://velog.io/@younngg1012/')[1],
       content,
-      link: 'study',
+      link: 'velog',
     };
   }
 }
@@ -89,7 +89,7 @@ export async function getMarkdownPost(slug: string): Promise<FullPostType> {
     description,
     categories,
     image,
-    link: 'daily',
+    link: 'posts',
     content: content.value as string,
   };
 }

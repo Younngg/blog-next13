@@ -11,11 +11,11 @@ export default async function Home() {
         <div className='mx-auto flex flex-col gap-20'>
           <h2 className='text-center text-2xl font-bold'>Recent Post</h2>
           <div className='flex flex-col items-center' data-aos='fade-up'>
-            <h2 className='text-xl font-bold mb-10'>Daily</h2>
+            <h2 className='text-xl font-bold mb-10'>Posts</h2>
             <RecentPosts posts={markdownPosts} />
           </div>
           <div className='flex flex-col items-center'>
-            <h2 className='text-xl font-bold mb-10'>Study</h2>
+            <h2 className='text-xl font-bold mb-10'>Velog</h2>
             <RecentPosts posts={velogPosts} />
           </div>
           <div className='flex flex-col items-center'>
