@@ -9,9 +9,9 @@ type Props = {
 const StudyPage = async ({ params: { slug } }: Props) => {
   const post = await getVelogPost(slug);
 
-  // if (!post) {
-  //   redirect('/study');
-  // }
+  if (!post) {
+    redirect('/study');
+  }
 
   return (
     <>

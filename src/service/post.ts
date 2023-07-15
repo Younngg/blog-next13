@@ -61,34 +61,35 @@ export async function getAllMarkdownPosts(): Promise<SimplePostType[]> {
   const files = await fs.readdir(folderPath);
 
   const posts = await Promise.all(
-    files.map(async (file) => await getMarkdownPost(file))
+    files.map(
+      async (file) => await getMarkdownPost(file.slice(0, file.length - 3)) // .md 제거
+    )
   );
 
-  return posts
-    .map(
-      ({
-        data: { title, date, tags, slug, description, categories, image },
-      }) => ({
-        title,
-        date,
-        tags,
-        slug,
-        description,
-        categories,
-        image,
-        link: 'daily',
-      })
-    )
-    .sort((a, b) => (a.date > b.date ? -1 : 1));
+  return posts.sort((a, b) => (a.date > b.date ? -1 : 1));
 }
 
-export async function getMarkdownPost(slug: string) {
-  const filePath = path.join(process.cwd(), 'posts', slug);
+export async function getMarkdownPost(slug: string): Promise<FullPostType> {
+  const filePath = path.join(process.cwd(), 'posts', `${slug}.md`);
   const post = await readFile(filePath, 'utf-8').then(matter);
   const content = await unified()
     .use(remarkParse)
     .use(remarkHtml)
     .process(post.content);
 
-  return { ...post, content: content.value };
+  const {
+    data: { title, date, tags, slug: id, description, categories, image },
+  } = post;
+
+  return {
+    title,
+    date,
+    tags,
+    slug: id,
+    description,
+    categories,
+    image,
+    link: 'daily',
+    content: content.value as string,
+  };
 }

@@ -10,10 +10,6 @@ type Props = {
 const DailyLayout = ({ children }: Props) => {
   return (
     <>
-      <PageTitle
-        title={pageInfo['/daily'].title}
-        description={pageInfo['/daily'].description}
-      />
       {children}
       <PlayList />
     </>

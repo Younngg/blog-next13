@@ -7,8 +7,17 @@ type Props = {
 
 const PostContent = ({ post }: Props) => {
   return (
-    <div className='sm:w-3/5 mx-auto p-10'>
-      <div className='mb-10  border-b'>
+    <div className='w-5/6 sm:w-3/5 mx-auto py-10 max-[600px]:py-2'>
+      {post.image && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={post.image}
+          alt={post.title}
+          referrerPolicy='no-referrer'
+          className='w-full object-cover'
+        />
+      )}
+      <div className='mb-10 border-b'>
         <div className='flex items-center justify-between mb-10'>
           <h1 className='text-5xl font-bold'>{post.title}</h1>
           <span className='text-sm'>{post.date}</span>
