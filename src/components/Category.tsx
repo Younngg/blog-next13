@@ -1,8 +1,10 @@
 type Props = {
   categories: string[];
+  selected: string;
+  onClick: (category: string) => void;
 };
 
-const Category = ({ categories }: Props) => {
+const Category = ({ categories, selected, onClick }: Props) => {
   return (
     <div className='p-10 max-[600px]:p-0 w-56 text-center'>
       <p className='w-full font-bold border-solid border-b-2 border-blue-300 pb-2 mb-2'>
@@ -12,12 +14,12 @@ const Category = ({ categories }: Props) => {
         {categories.map((category) => (
           <li
             key={category}
-            // onClick={() => {
-            //   setSelected(category);
-            // }}
-            // className={`cursor-pointer hover:text-sky-500 ${
-            //   selected === category && 'text-sky-600'
-            // }`}
+            onClick={() => {
+              onClick(category);
+            }}
+            className={`cursor-pointer hover:text-sky-500 ${
+              selected === category && 'text-sky-600'
+            }`}
           >
             {category}
           </li>

@@ -9,7 +9,7 @@ export default async function Home() {
     <div className='w-full bg-[#80a77a]'>
       <div className='p-5'>
         <div className='mx-auto flex flex-col gap-20'>
-          <h2 className='text-center text-2xl font-bold'>Recent Post</h2>
+          <h2 className='text-center text-2xl font-bold'>Recent Posts</h2>
           <div className='flex flex-col items-center' data-aos='fade-up'>
             <h2 className='text-xl font-bold mb-10'>Posts</h2>
             <RecentPosts posts={markdownPosts} />
