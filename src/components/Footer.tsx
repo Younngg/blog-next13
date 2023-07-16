@@ -20,7 +20,7 @@ const Footer = () => {
             <strong>Velog</strong>
           </a>
         </p>
-        <p>
+        {/* <p>
           <a
             href='https://my.surfit.io/w/1501176912'
             target='_blank'
@@ -28,7 +28,7 @@ const Footer = () => {
           >
             <strong>Resume</strong>
           </a>
-        </p>
+        </p> */}
       </div>
       <p className='text-center'>
         <strong className='inline-block mr-2'>Email</strong>
