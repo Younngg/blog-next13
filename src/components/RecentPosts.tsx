@@ -8,10 +8,10 @@ type Props = {
 const RecentPosts = ({ posts }: Props) => {
   return (
     <ul className='w-full lg:w-[1000px]'>
-      {posts.map(({ title, date, description, slug }) => (
+      {posts.map(({ title, date, description, slug, link }) => (
         <Link
           key={slug}
-          href={`study/${slug}`}
+          href={`${link}/${slug}`}
           className='block py-3 border-b border-gray-900'
         >
           <li>

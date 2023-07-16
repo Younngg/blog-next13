@@ -10,7 +10,7 @@ const PostPage = async ({ params: { slug } }: Props) => {
   const post = await getMarkdownPost(slug);
 
   if (!post) {
-    redirect('/study');
+    redirect('/posts');
   }
 
   return (

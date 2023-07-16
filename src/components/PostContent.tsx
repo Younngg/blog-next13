@@ -18,9 +18,11 @@ const PostContent = ({ post }: Props) => {
         />
       )}
       <div className='mb-10 border-b'>
-        <div className='flex items-center justify-between mb-10'>
-          <h1 className='text-5xl font-bold'>{post.title}</h1>
-          <span className='text-sm'>{post.date}</span>
+        <div className='mb-10'>
+          <h1 className='text-4xl max-sm:text-xl font-bold mb-5'>
+            {post.title}
+          </h1>
+          <span className='text-sm text-neutral-500'>{post.date}</span>
         </div>
         <p className='mb-10'>{post.description}</p>
         {/* <div className='mb-5'>{post.tags && <Tag tags={post.tags} />}</div> */}

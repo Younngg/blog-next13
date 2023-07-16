@@ -10,7 +10,7 @@ const VelogPage = async ({ params: { slug } }: Props) => {
   const post = await getVelogPost(slug);
 
   if (!post) {
-    redirect('/study');
+    redirect('/velog');
   }
 
   return (
