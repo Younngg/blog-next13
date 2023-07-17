@@ -2,6 +2,12 @@ import FilterablePosts from '@/components/FilterablePosts';
 import PageTitle from '@/components/PageTitle';
 import pageInfo from '@/constants/pageInfo';
 import { getAllMarkdownPosts } from '@/service/post';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'All Posts',
+  description: '블로그 글 목록',
+};
 
 const PostsPage = async () => {
   const posts = await getAllMarkdownPosts();
