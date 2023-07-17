@@ -14,7 +14,7 @@ const bgColorForPath: BgColorForPathType = {
   '/velog/[id]': 'bg-white',
   '/posts': `bg-[url('/asset/studyBg.jpg')] bg-cover`,
   '/posts/[id]': `bg-[url('/asset/studyBg.jpg')] bg-cover`,
-  '/': 'bg-[#91c788]',
+  '/': 'bg-white',
 };
 
 const Header = () => {
@@ -28,27 +28,17 @@ const Header = () => {
   const onScroll = () => {
     const HEADER_HEIGHT = headerRef.current?.clientHeight || 0;
     if (window.scrollY >= HEADER_HEIGHT) {
-      headerRef.current?.classList.add(
-        'shadow-md',
-        'h-20',
-        'flex-row',
-        'justify-around'
-      );
+      headerRef.current?.classList.add('h-20', 'flex-row', 'justify-around');
       headerRef.current?.classList.remove('flex-col');
     } else {
-      headerRef.current?.classList.remove(
-        'shadow-md',
-        'h-20',
-        'flex-row',
-        'justify-around'
-      );
+      headerRef.current?.classList.remove('h-20', 'flex-row', 'justify-around');
       headerRef.current?.classList.add('flex-col');
     }
   };
 
   return (
     <header
-      className={`sticky top-0 left-0 right-0 z-50 ${bgColorForPath[pathname]} mx-auto flex flex-col items-center p-8 gap-4`}
+      className={`sticky top-0 left-0 right-0 z-50 ${bgColorForPath[pathname]} mx-auto flex flex-col items-center p-8 gap-4 shadow-md`}
       ref={headerRef}
     >
       <h1 className='font-bold text-lg'>
