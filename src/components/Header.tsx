@@ -10,11 +10,9 @@ type BgColorForPathType = {
 };
 
 const bgColorForPath: BgColorForPathType = {
-  '/velog': 'bg-white',
-  '/velog/[id]': 'bg-white',
-  '/posts': `bg-[url('/asset/studyBg.jpg')] bg-cover`,
-  '/posts/[id]': `bg-[url('/asset/studyBg.jpg')] bg-cover`,
-  '/': 'bg-white',
+  velog: 'bg-white',
+  posts: `bg-[url('/asset/studyBg.jpg')] bg-cover`,
+  '': 'bg-white',
 };
 
 const Header = () => {
@@ -38,7 +36,9 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 left-0 right-0 z-50 ${bgColorForPath[pathname]} mx-auto flex flex-col items-center p-8 gap-4 shadow-md`}
+      className={`sticky top-0 left-0 right-0 z-50 ${
+        bgColorForPath[pathname.split('/')[1]]
+      } mx-auto flex flex-col items-center p-8 gap-4 shadow-md`}
       ref={headerRef}
     >
       <h1 className='font-bold text-lg'>
