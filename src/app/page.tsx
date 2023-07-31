@@ -1,5 +1,6 @@
 import About from '@/components/About';
 import RecentPosts from '@/components/RecentPosts';
+import RecentVelogPosts from '@/components/RecentVelogPosts';
 import Tags from '@/components/Tags';
 import { getRecentMarkdownPosts, getRecentVelogPost } from '@/service/post';
 
@@ -23,7 +24,7 @@ export default async function Home() {
             </div>
             <div className='flex flex-col items-center'>
               <h2 className='text-xl font-bold mb-10'>Velog</h2>
-              <RecentPosts posts={velogPosts} />
+              <RecentVelogPosts />
             </div>
             <div className='flex flex-col items-center'>
               <h2 className='text-xl font-bold mb-10'>Tags</h2>

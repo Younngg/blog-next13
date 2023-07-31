@@ -3,6 +3,7 @@ import './globals.css';
 import { Open_Sans } from 'next/font/google';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
+import QueryContext from '@/context/QueryContext';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -26,7 +27,9 @@ export default function RootLayout({
     <html lang='en' className={openSans.className}>
       <body>
         <Header />
-        <main>{children}</main>
+        <QueryContext>
+          <main>{children}</main>
+        </QueryContext>
         <Footer />
       </body>
     </html>
