@@ -3,7 +3,6 @@ import path from 'path';
 import Parser from 'rss-parser';
 import fs, { readFile } from 'fs/promises';
 import matter from 'gray-matter';
-import { readFileSync } from 'fs';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkHtml from 'remark-html';
@@ -15,7 +14,7 @@ export async function getRecentVelogPost(): Promise<SimplePostType[]> {
 }
 
 export async function getAllVelogPost(): Promise<SimplePostType[]> {
-  return (await parser
+  const post = await parser
     .parseURL('https://v2.velog.io/rss/younngg1012')
     .then((posts) =>
       posts.items.map(({ title, isoDate, guid, contentSnippet }) => ({
@@ -25,7 +24,9 @@ export async function getAllVelogPost(): Promise<SimplePostType[]> {
         description: contentSnippet?.slice(0, 100),
         link: 'velog',
       }))
-    )) as SimplePostType[];
+    );
+
+  return post as SimplePostType[];
 }
 
 export async function getVelogPost(
