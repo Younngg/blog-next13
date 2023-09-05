@@ -19,8 +19,18 @@
 <br />
 
 ## 구현 화면
+
+### 1. 메인 화면
 <img width="798" alt="메인화면" src="https://github.com/Younngg/blog-next13/assets/98656282/df35ac04-737f-42a2-adf7-41ebf0ac8df6">
+
+<br />
+
+### 2. post 게시판
 <img width="798" alt="post 게시판" src="https://github.com/Younngg/blog-next13/assets/98656282/b15d1034-9c8c-4dab-b849-efa288bc74a9">
+
+<br />
+
+### 3. velog 게시판
 <img width="798" alt="velog 게시판" src="https://github.com/Younngg/blog-next13/assets/98656282/2f890285-6d37-4421-a6b3-e213c57744a7">
 
 
